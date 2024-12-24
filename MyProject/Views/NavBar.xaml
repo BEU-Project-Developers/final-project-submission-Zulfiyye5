@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="MyProject.NavBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MyProject"
+             mc:Ignorable="d" 
+                    d:DesignHeight="100" d:DesignWidth="800">
+    <DockPanel Background="#14181C" Height="60">
+        <TextBlock Text="MOVIEDB" FontSize="35" Margin="29,0,0,0"
+                   Foreground="#2AB9D7" VerticalAlignment="Center" />
+
+        <Button FontSize="15" Margin="69,0,0,0"
+        Foreground="White" Background="Transparent" VerticalAlignment="Center" 
+        BorderBrush="Transparent" Click="GoToMovies">
+            <TextBlock Text="Movies" x:Name="MoviesText"  />
+        </Button>
+
+
+        <Button  FontSize="15" Margin="29,0,0,0"
+                Foreground="White" Background="Transparent" VerticalAlignment="Center" 
+                BorderBrush="Transparent" Click="GoToWatchList" >
+            <TextBlock Text="WatchList" x:Name="WatchListText"  />
+        </Button>
+
+        <Button  FontSize="15" Margin="29,0,0,0"
+                Foreground="White" Background="Transparent" VerticalAlignment="Center" 
+                BorderBrush="Transparent" Click="GoToWatched" >
+            <TextBlock Text="Watched" x:Name="WatchedText"  />
+        </Button>
+
+        <Button FontSize="15" Margin="29,0,0,0"
+                Foreground="White" Background="Transparent" VerticalAlignment="Center" 
+                BorderBrush="Transparent" Click="GoToFavorities" >
+            <TextBlock Text="Favorites" x:Name="FavoritesText"  />
+        </Button>
+
+        <Border CornerRadius="15" Background="#D9D9D9" Margin="120,10,10,10" Padding="5" Width="150" HorizontalAlignment="Right">
+            <DockPanel LastChildFill="True">
+         
+                    <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="120" x:Name="SearchBoxTextBox"
+                     Padding="10,0" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
+                     Text="Search" GotFocus="SearchBoxFocus" KeyDown="SearchBoxTextBox_KeyDown"/>
+     
+
+                <Button Click="SearchMoviesClick" HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" Padding="0" Margin="5,0,0,0" VerticalAlignment="Center">
+                    <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\search.png" Height="20"/>
+                </Button>
+            </DockPanel>
+        </Border>
+
+
+
+    </DockPanel>
+</UserControl>

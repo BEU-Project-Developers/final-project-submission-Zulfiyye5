@@ -1,0 +1,11 @@
+﻿<Window x:Class="MyProject.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MyProject"
+        Title="Window Navigation" Height="750" Width="1200" ResizeMode="CanResize"
+     >
+
+    <Grid>
+        <Frame Source="LoginPage.xaml" NavigationUIVisibility="Hidden" Name="MainFrame"/>
+    </Grid>
+</Window>
