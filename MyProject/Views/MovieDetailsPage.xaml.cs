@@ -186,5 +186,24 @@ namespace MyProject.Views
                 SearchMoviesClick(sender, e);
             }
         }
+
+
+        private void GoToFavorities(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationService.Navigate(new FavoriteMovies());
+        }
+
+
+
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AccountPopup.IsOpen = !AccountPopup.IsOpen;
+        }
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationService.Navigate(new HomePage());
+        }
     }
 }

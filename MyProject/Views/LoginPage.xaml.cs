@@ -70,7 +70,10 @@ namespace MyProject.Views
                     if (_movieService.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password) != null)
                     {
                         UserSession.Instance.UserId = (int)(_movieService.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password));
-                        mainFrame?.Navigate(new MoviesPage());
+                       UserSession.Instance.UserName=(string)(_movieService.GetUserById(UserSession.Instance.UserId).name);
+                        UserSession.Instance.Email = (string)(_movieService.GetUserById(UserSession.Instance.UserId).email);
+
+                        mainFrame?.Navigate(new HomePage());
                     }
                     else
                     {

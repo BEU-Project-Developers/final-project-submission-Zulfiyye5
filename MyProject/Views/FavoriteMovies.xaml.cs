@@ -28,9 +28,7 @@ namespace MyProject.Views
         {
             InitializeComponent();
             _movieService = new MovieService();
-            this.NavBarUserControl.FavoritesText.Foreground = new SolidColorBrush(Colors.Red);
 
-            this.NavBarUserControl.FavoritesText.FontSize = 16;
             this.DataContext = new PagesViewModel(_movieService);
            
         }

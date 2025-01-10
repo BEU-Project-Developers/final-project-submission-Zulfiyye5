@@ -28,9 +28,7 @@ namespace MyProject.Views
             _movieService = new MovieService();
             this.DataContext = new PagesViewModel(_movieService);
             InitializeComponent();
-            this.NavBarUserControl.WatchListText.Foreground = new SolidColorBrush(Colors.Red);
-
-            this.NavBarUserControl.WatchListText.FontSize = 16;
+        
         }
 
     

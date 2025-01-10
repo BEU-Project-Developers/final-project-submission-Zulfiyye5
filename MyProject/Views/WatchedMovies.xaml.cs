@@ -28,8 +28,7 @@ namespace MyProject.Views
             _movieService = new MovieService();
             this.DataContext = new PagesViewModel(_movieService);
             InitializeComponent();
-            this.NavBarUserControl.WatchedText.Foreground = new SolidColorBrush(Colors.Red);
-            this.NavBarUserControl.WatchedText.FontSize = 16;
+
           
         }
 

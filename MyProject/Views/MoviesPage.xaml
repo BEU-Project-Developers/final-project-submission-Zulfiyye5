@@ -7,7 +7,7 @@
         xmlns:u="clr-namespace:MyProject"
       mc:Ignorable="d" 
       HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#1B2027"
-      Title="HomePage">
+      Title="MoviesPage">
 
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">

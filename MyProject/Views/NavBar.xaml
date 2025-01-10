@@ -7,10 +7,13 @@
              mc:Ignorable="d" 
                     d:DesignHeight="100" d:DesignWidth="800">
     <DockPanel Background="#14181C" Height="60">
-        <TextBlock Text="MOVIEDB" FontSize="35" Margin="29,0,0,0"
-                   Foreground="#2AB9D7" VerticalAlignment="Center" />
-
-        <Button FontSize="15" Margin="69,0,0,0"
+        
+        <Button FontSize="15" Margin="9,0,0,0"
+ Foreground="White" Background="Transparent" VerticalAlignment="Center"  Click="GoToHomePage"
+ BorderBrush="Transparent" >
+            <TextBlock Text="MOVIEDB" Foreground="#2EBAD2" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="30"></TextBlock>
+        </Button>
+        <Button FontSize="15" Margin="29,0,0,0"
         Foreground="White" Background="Transparent" VerticalAlignment="Center" 
         BorderBrush="Transparent" Click="GoToMovies">
             <TextBlock Text="Movies" x:Name="MoviesText"  />
@@ -19,35 +22,45 @@
 
         <Button  FontSize="15" Margin="29,0,0,0"
                 Foreground="White" Background="Transparent" VerticalAlignment="Center" 
-                BorderBrush="Transparent" Click="GoToWatchList" >
-            <TextBlock Text="WatchList" x:Name="WatchListText"  />
+                BorderBrush="Transparent"  >
+            <TextBlock Text="People" x:Name="WatchListText"  />
         </Button>
 
-        <Button  FontSize="15" Margin="29,0,0,0"
-                Foreground="White" Background="Transparent" VerticalAlignment="Center" 
-                BorderBrush="Transparent" Click="GoToWatched" >
-            <TextBlock Text="Watched" x:Name="WatchedText"  />
-        </Button>
+      
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Border CornerRadius="15" Background="#D9D9D9" Margin="120,10,10,10" Padding="5" Width="150" HorizontalAlignment="Right">
+                <DockPanel LastChildFill="True">
 
-        <Button FontSize="15" Margin="29,0,0,0"
-                Foreground="White" Background="Transparent" VerticalAlignment="Center" 
-                BorderBrush="Transparent" Click="GoToFavorities" >
-            <TextBlock Text="Favorites" x:Name="FavoritesText"  />
-        </Button>
-
-        <Border CornerRadius="15" Background="#D9D9D9" Margin="120,10,10,10" Padding="5" Width="150" HorizontalAlignment="Right">
-            <DockPanel LastChildFill="True">
-         
                     <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="120" x:Name="SearchBoxTextBox"
-                     Padding="10,0" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
-                     Text="Search" GotFocus="SearchBoxFocus" KeyDown="SearchBoxTextBox_KeyDown"/>
-     
+                Padding="10,0" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
+                Text="Search" GotFocus="SearchBoxFocus" KeyDown="SearchBoxTextBox_KeyDown"/>
 
-                <Button Click="SearchMoviesClick" HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" Padding="0" Margin="5,0,0,0" VerticalAlignment="Center">
-                    <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\search.png" Height="20"/>
-                </Button>
-            </DockPanel>
-        </Border>
+
+                    <Button Click="SearchMoviesClick" HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" Padding="0" Margin="5,0,0,0" VerticalAlignment="Center">
+                        <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\search.png" Height="20"/>
+                    </Button>
+                </DockPanel>
+            </Border>
+            <Button x:Name="AccountButton" Background="Transparent" BorderBrush="Transparent" Margin="5,0,10,0" VerticalAlignment="Center" Click="AccountButton_Click">
+                <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\accounticon.png" Height="20" Width="20"/>
+            </Button>
+
+        
+            <Popup x:Name="AccountPopup" PlacementTarget="{Binding ElementName=AccountButton}" Placement="Bottom" StaysOpen="False">
+                <Border  BorderBrush="Gray" BorderThickness="1" Width="100" Background="#1D232A">
+                    <StackPanel>
+
+                        <Button Content="Favorite Movies" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="GoToFavorities"/>
+                        <Button Content="Watched" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="GoToWatched"/>
+                        <Button Content="Watchlist" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="GoToWatchList"/>
+
+                        <Button Content="Settings" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+                        <Button Content="Sign out" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="SignOutClick"/>
+                    </StackPanel>
+                </Border>
+            </Popup>
+        </StackPanel>
+     
 
 
 

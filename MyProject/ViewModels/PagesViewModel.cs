@@ -18,8 +18,12 @@ namespace MyProject.ViewModels
         public ObservableCollection<Movie> FavoriteMovies { get; set; }
         public ObservableCollection<Movie> WatchList { get; set; }
         public ObservableCollection<Movie> WatchedMoviesList { get; set; }
+        public ObservableCollection<Movie> HighestImdbMovies { get; set; }
+
+        public ObservableCollection<Movie> PopularMovies { get; set; }
 
         public ObservableCollection<Movie> SearchResults { get; set; }
+
 
       
         public PagesViewModel(MovieService movieService)
@@ -30,8 +34,8 @@ namespace MyProject.ViewModels
             FavoriteMovies = new ObservableCollection<Movie>(_movieService.GetFavorities(UserSession.Instance.UserId));
             WatchList = new ObservableCollection<Movie>(_movieService.GetWatchList(UserSession.Instance.UserId));
             WatchedMoviesList = new ObservableCollection<Movie>(_movieService.GetWatchedMovies(UserSession.Instance.UserId));
-            
-
+            PopularMovies= new ObservableCollection<Movie>(_movieService.PopularMovies());
+            HighestImdbMovies= new ObservableCollection<Movie>(_movieService.HighestImdbMovies());
 
         }
         private bool _isSearchResultsEmpty;

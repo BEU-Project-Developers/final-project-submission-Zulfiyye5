@@ -21,12 +21,16 @@ namespace MyProject
     /// </summary>
     public partial class NavBar : UserControl
     { 
-   
+  
+        
 
 
         public NavBar()
         {
             InitializeComponent();
+            
+            
+
            
 
         }
@@ -70,6 +74,16 @@ namespace MyProject
             if (e.Key == Key.Enter) {
                 SearchMoviesClick(sender, e);
             }
+        }
+
+        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        {
+            AccountPopup.IsOpen = !AccountPopup.IsOpen;
+        }
+
+        private void GoToHomePage(object sender, RoutedEventArgs e)
+        {
+            MainWindow.NavigationService.Navigate(new HomePage());
         }
     }
 }

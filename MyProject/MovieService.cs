@@ -125,6 +125,9 @@ namespace MyProject
             return movie;
         }
 
+
+
+
         public List<Genre> FindGenreByMovieId(int movieId)
         {
             List<Genre> genres = new List<Genre>();
@@ -312,6 +315,55 @@ WHERE g.dbId = @movieId;";
         }
 
 
+
+        public User GetUserById(int userId)
+        {
+            string query = "SELECT id, userName, email, password FROM Users WHERE id = @UserId";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserId", userId);
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read()) 
+                            {
+                                User user = new User
+                                {
+                                    id = (int)reader["id"],
+                                    name = reader["userName"].ToString(),
+                                    email = reader["email"].ToString(),
+                                    password = reader["password"].ToString()
+                                };
+
+                                return user; 
+                            }
+                            else
+                            { 
+                                return null;
+                                
+                                }
+                               
+                            
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+                return null;
+            }
+        }
+
+
+
         public void AddToFavorite(int movieId,int userId)
         {
             string query = "INSERT INTO FavoriteMovies (user_id, movie_id) VALUES (@UserId, @MovieId)";
@@ -450,6 +502,81 @@ WHERE g.dbId = @movieId;";
             return movies;
         }
 
+        public List<Movie> HighestImdbMovies()
+        {
+            var movies = new List<Movie>();
+            string query = "SELECT TOP 10 m.dbId, m.title, m.overview, m.image_path, m.bg_image_path, m.imdb, " +
+                "m.origin_country, m.origin_language, m.director_name, m.runtime, m.release_date " +
+                "FROM Movie m ORDER BY m.imdb DESC;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+              
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    movies.Add(new Movie
+                    {
+                        dbId = Convert.ToInt32(reader["dbId"]),
+                        Title = reader["title"].ToString(),
+                        Overview = reader["overview"].ToString(),
+                        Image_path = reader["image_path"].ToString(),
+                        Bg_image_path = reader["bg_image_path"].ToString(),
+                        Imdb = Convert.ToDouble(reader["imdb"]),
+                        Origin_country = reader["origin_country"].ToString(),
+                        Origin_language = reader["origin_language"].ToString(),
+                        Director_name = reader["director_name"].ToString(),
+                        Runtime = Convert.ToInt32(reader["runtime"]),
+                        ReleaseDate = reader["release_date"].ToString(),
+
+
+
+
+                    });
+                }
+
+            }
+            return movies;
+
+        }
+
+
+
+        public List<Movie> PopularMovies()
+        {
+            var movies = new List<Movie>();
+            string query = "SELECT \r\n    m.dbId, \r\n    m.title, \r\n    m.overview, \r\n    m.image_path, \r\n    m.bg_image_path, \r\n    m.imdb, \r\n    m.origin_country, \r\n    m.origin_language, \r\n    m.director_name, \r\n    m.runtime, \r\n    m.release_date,\r\n    j.wcount\r\nFROM \r\n    Movie m\r\nJOIN \r\n    (SELECT\r\n        w.movie_id,\r\n        m.title AS MovieTitle,\r\n        COUNT(w.movie_id) AS wcount\r\n     FROM \r\n        WatchedMovies w\r\n     JOIN \r\n        Movie m ON w.movie_id = m.dbId\r\n     GROUP BY \r\n        w.movie_id, m.title\r\n     ORDER BY \r\n        wcount DESC\r\n     OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY) j  \r\nON \r\n    m.dbId = j.movie_id\r\nORDER BY \r\n    j.wcount DESC;\r\n";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    movies.Add(new Movie
+                    {
+                        dbId = Convert.ToInt32(reader["dbId"]),
+                        Title = reader["title"].ToString(),
+                        Overview = reader["overview"].ToString(),
+                        Image_path = reader["image_path"].ToString(),
+                        Bg_image_path = reader["bg_image_path"].ToString(),
+                        Imdb = Convert.ToDouble(reader["imdb"]),
+                        Origin_country = reader["origin_country"].ToString(),
+                        Origin_language = reader["origin_language"].ToString(),
+                        Director_name = reader["director_name"].ToString(),
+                        Runtime = Convert.ToInt32(reader["runtime"]),
+                        ReleaseDate = reader["release_date"].ToString(),
+                    });
+                }
+            }
+            return movies;
+        }
 
         public List<Movie> GetWatchList(int userId)
         {
@@ -628,7 +755,7 @@ WHERE g.dbId = @movieId;";
             }
         }
 
-
+        
 
         public void AddToWatchList(int movieId, int userId)
         {

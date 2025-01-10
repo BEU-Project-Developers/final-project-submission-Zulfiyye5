@@ -7,6 +7,9 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\HomePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\NavBar.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -39,6 +42,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\NavBar.xaml">
       <SubType>Designer</SubType>
     </Page>
