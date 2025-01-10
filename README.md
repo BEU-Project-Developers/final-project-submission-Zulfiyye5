@@ -28,14 +28,12 @@ Backend & Database:
 
 Pages:
 - [ ] User Profile Page
-- [x] ~~Home Page~~
 - [x] ~~Display all movies in database~~
 - [x] ~~Display movie details of spesific movie~~
 - [x] ~~Display cast of movie~~
 - [x] ~~Display favorite movies of user~~
 - [x] ~~Display watched movies of user~~
 - [x] ~~Display movies of watchlist of user~~
-- [x] ~~Display all cast members in database~~
 - [x] ~~Display  information about cast members~~
 
 Movie Browsing
