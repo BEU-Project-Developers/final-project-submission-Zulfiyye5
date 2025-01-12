@@ -30,7 +30,10 @@ namespace MyProject.Views
             _movieService = new MovieService();
 
             this.DataContext = new PagesViewModel(_movieService);
-           
+            this.NavBarUserControl.FavoritesText.Foreground = new SolidColorBrush(Colors.Red);
+            
+            this.NavBarUserControl.FavoritesText.FontSize = 16;
+
         }
         private void MovieItem_Click(object sender, MouseButtonEventArgs e)
         {

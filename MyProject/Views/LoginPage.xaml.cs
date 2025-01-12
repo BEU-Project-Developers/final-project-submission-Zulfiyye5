@@ -73,7 +73,7 @@ namespace MyProject.Views
                        UserSession.Instance.UserName=(string)(_movieService.GetUserById(UserSession.Instance.UserId).name);
                         UserSession.Instance.Email = (string)(_movieService.GetUserById(UserSession.Instance.UserId).email);
 
-                        mainFrame?.Navigate(new HomePage());
+                        mainFrame?.Navigate(new MoviesPage());
                     }
                     else
                     {

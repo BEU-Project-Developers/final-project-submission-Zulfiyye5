@@ -48,7 +48,7 @@ namespace MyProject.Views
             if (success)
             {
                 UserSession.Instance.UserId = (int)(_movieService.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password));
-                MainWindow.NavigationService.Navigate(new HomePage());
+                MainWindow.NavigationService.Navigate(new MoviesPage());
             }
             else
             {

@@ -201,9 +201,6 @@ namespace MyProject.Views
             AccountPopup.IsOpen = !AccountPopup.IsOpen;
         }
 
-        private void GoToHomePage(object sender, RoutedEventArgs e)
-        {
-            MainWindow.NavigationService.Navigate(new HomePage());
-        }
+    
     }
 }

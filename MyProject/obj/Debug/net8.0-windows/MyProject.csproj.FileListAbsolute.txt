@@ -109,5 +109,3 @@ C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\M
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MoviesPage.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SearchResults.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SearchResults.baml
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\HomePage.g.cs
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\HomePage.baml
