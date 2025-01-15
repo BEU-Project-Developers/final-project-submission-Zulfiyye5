@@ -5,6 +5,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="clr-namespace:MyProject"
       mc:Ignorable="d"
+        xmlns:u="clr-namespace:MyProject"
       Title="MovieDetailsPage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Black">
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
@@ -24,71 +25,7 @@
 
                 <Grid Grid.ZIndex="2">
 
-                    <Grid Height="50" VerticalAlignment="Top" Background="Transparent" HorizontalAlignment="Stretch">
-
-                        <DockPanel Background="#14181C">
-                            <Button FontSize="15" Margin="9,0,0,0"
- Foreground="White" Background="Transparent" VerticalAlignment="Center"  Click="GoToMovies"
- BorderBrush="Transparent" >
-                                <TextBlock Text="MOVIEDB" Foreground="#2EBAD2" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="30"></TextBlock>
-                            </Button>
-
-                            <Button FontSize="15" Margin="29,0,0,0"
-        Foreground="White" Background="Transparent" VerticalAlignment="Center" 
-        BorderBrush="Transparent" Click="GoToFavorities">
-                                <TextBlock Text="Favorites" x:Name="FavoritesText"  />
-                            </Button>
-                            <Button FontSize="15" Margin="29,0,0,0"
-   Foreground="White" Background="Transparent" VerticalAlignment="Center" 
-   BorderBrush="Transparent" Click="GoToWatchList">
-                                <TextBlock Text="WatchList" x:Name="WatchListText"  />
-                            </Button>
-                            <Button FontSize="15" Margin="29,0,0,0"
-Foreground="White" Background="Transparent" VerticalAlignment="Center" 
-BorderBrush="Transparent" Click="GoToWatched">
-                                <TextBlock Text="Watched" x:Name="WatchedText"  />
-                            </Button>
-
-
-
-
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                                <Border CornerRadius="15" Background="#D9D9D9" Margin="120,10,10,10" Padding="5" Width="150" HorizontalAlignment="Right">
-                                    <DockPanel LastChildFill="True">
-
-                                        <TextBox HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="120" x:Name="SearchBoxTextBox"
-                Padding="10,0" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" 
-                Text="Search" GotFocus="SearchBoxFocus" KeyDown="SearchBoxTextBox_KeyDown"/>
-
-
-                                        <Button Click="SearchMoviesClick" HorizontalAlignment="Right" Background="Transparent" BorderBrush="Transparent" Padding="0" Margin="5,0,0,0" VerticalAlignment="Center">
-                                            <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\search.png" Height="20"/>
-                                        </Button>
-                                    </DockPanel>
-                                </Border>
-                                <Button x:Name="AccountButton" Background="Transparent" BorderBrush="Transparent" Margin="5,0,10,0" VerticalAlignment="Center" Click="AccountButton_Click">
-                                    <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\accounticon.png" Height="20" Width="20"/>
-                                </Button>
-
-
-                                <Popup x:Name="AccountPopup" PlacementTarget="{Binding ElementName=AccountButton}" Placement="Bottom" StaysOpen="False">
-                                    <Border  BorderBrush="Gray" BorderThickness="1" Width="100" Background="#1D232A">
-                                        <StackPanel>
-
-                                            <Button Content="Favorite Movies" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="GoToFavorities"/>
-                                            <Button Content="Watched" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="GoToWatched"/>
-                                            <Button Content="Watchlist" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="GoToWatchList"/>
-
-                                            <Button Content="Settings" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent"/>
-                                            <Button Content="Sign out" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="SignOutClick"/>
-                                        </StackPanel>
-                                    </Border>
-                                </Popup>
-                            </StackPanel>
-
-                        </DockPanel>
-
-                    </Grid>
+                    <u:NavBar x:Name="NavBarUserControl" Grid.Row="0" VerticalAlignment="Top"/>
 
                     <Grid Margin="20,70,20,20">
                         <Grid.ColumnDefinitions>
@@ -98,6 +35,7 @@ BorderBrush="Transparent" Click="GoToWatched">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
 
@@ -174,6 +112,20 @@ BorderBrush="Transparent" Click="GoToWatched">
                                 </ItemsControl>
                             </ScrollViewer>
                         </StackPanel>
+
+                        <StackPanel Margin="0,20,0,0" Grid.Row="2"  Grid.ColumnSpan="2">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Reviews" Foreground="White" FontSize="12" Margin="30,0,0,0"></TextBlock>
+                                <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\penicon.png" Height="20" Margin="30,0,0,0" Width="20"/>
+                                <Button x:Name="ReviewButton" Background="Transparent" BorderBrush="Transparent"  VerticalAlignment="Center" Click="AddReviewClick" >
+                        
+                                    <TextBlock Text="Write" Foreground="White" FontSize="10"></TextBlock>
+                                </Button>
+
+                            </StackPanel>
+                       
+                        </StackPanel>
+                        
                     </Grid>
                 </Grid>
             </Grid>
@@ -208,8 +160,11 @@ BorderBrush="Transparent" Click="GoToWatched">
                         <Image ToolTip="Add to  WatchList"  x:Name="SaveImage" Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\savewhite.png" Height="30" />
                     </Button.Content>
                 </Button>
+                
                 <TextBlock Text="Watchlist" Foreground="White" FontSize="12" HorizontalAlignment="Center"/>
             </StackPanel>
+            
         </StackPanel>
+   
     </Grid>
 </Page>

@@ -29,7 +29,7 @@ namespace MyProject
         {
             InitializeComponent();
             
-
+            UserNameText.Text = UserSession.Instance.UserName;
            
 
         }

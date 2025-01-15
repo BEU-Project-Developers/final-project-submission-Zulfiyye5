@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\ADMIN\source\repos\MyProject\MyProject\App.xaml
-12641002078
+13511026123
 
-28-393551523
+30112050122
 2321964347848
-Views\FavoriteMovies.xaml;Views\LoginPage.xaml;Views\MainWindow.xaml;Views\MovieDetailsPage.xaml;Views\MoviesPage.xaml;Views\NavBar.xaml;Views\PersonInfoPage.xaml;Views\SearchResults.xaml;Views\SignUpPage.xaml;Views\WatchedMovies.xaml;Views\WatchList.xaml;Window1.xaml;
+Views\AddReviewWindow.xaml;Views\FavoriteMovies.xaml;Views\LoginPage.xaml;Views\MainWindow.xaml;Views\MovieDetailsPage.xaml;Views\MoviesPage.xaml;Views\NavBar.xaml;Views\PersonInfoPage.xaml;Views\SearchResults.xaml;Views\SignUpPage.xaml;Views\WatchedMovies.xaml;Views\WatchList.xaml;Window1.xaml;
 
 False
 

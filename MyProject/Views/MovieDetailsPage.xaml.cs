@@ -53,6 +53,7 @@ namespace MyProject.Views
                 SaveImage.ToolTip="Add to  WatchList" ;
             }
             DataContext = new MoviesDetailViewModel(movie,_movieService);  
+
         }
 
         private void GoToMovies(object sender, RoutedEventArgs e)
@@ -169,38 +170,35 @@ namespace MyProject.Views
             MainWindow.NavigationService.Navigate(new LoginPage());
         }
 
-        private void SearchBoxFocus(object sender, RoutedEventArgs e)
-        {
-            SearchBoxTextBox.Text = "";
-        }
-
-        private void SearchMoviesClick(object sender, RoutedEventArgs e)
-        {
-            MainWindow.NavigationService.Navigate(new SearchResults(SearchBoxTextBox.Text));
-        }
-
-        private void SearchBoxTextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                SearchMoviesClick(sender, e);
-            }
-        }
-
+  
 
         private void GoToFavorities(object sender, RoutedEventArgs e)
         {
             MainWindow.NavigationService.Navigate(new FavoriteMovies());
         }
 
-
-
-
-        private void AccountButton_Click(object sender, RoutedEventArgs e)
+        private void AddReviewClick(object sender, RoutedEventArgs e)
         {
-            AccountPopup.IsOpen = !AccountPopup.IsOpen;
-        }
+            //var addReviewWindow = new AddReviewWindow();
+            //addReviewWindow.Owner = Application.Current.MainWindow;
+            //addReviewWindow.ShowDialog();
 
-    
+
+            var blurEffect = new System.Windows.Media.Effects.BlurEffect
+            {
+                Radius = 10
+            };
+            this.Effect = blurEffect;
+
+      
+            var addReviewWindow = new AddReviewWindow(Movie);
+
+            addReviewWindow.Closed += (s, args) => this.Effect = null; 
+
+
+            addReviewWindow.Owner = Application.Current.MainWindow;
+            addReviewWindow.ShowDialog();
+
+        }
     }
 }

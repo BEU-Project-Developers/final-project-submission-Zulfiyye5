@@ -11,7 +11,7 @@
         <Button FontSize="15" Margin="9,0,0,0"
  Foreground="White" Background="Transparent" VerticalAlignment="Center"  Click="GoToMovies"
  BorderBrush="Transparent" >
-            <TextBlock Text="MOVIEDB" Foreground="#2EBAD2" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="30"></TextBlock>
+            <TextBlock Text="Home" Foreground="White" x:Name="HomeText" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="15"></TextBlock>
         </Button>
         <Button FontSize="15" Margin="29,0,0,0"
         Foreground="White" Background="Transparent" VerticalAlignment="Center" 
@@ -45,9 +45,10 @@ BorderBrush="Transparent" Click="GoToWatched">
                     </Button>
                 </DockPanel>
             </Border>
-            <Button x:Name="AccountButton" Background="Transparent" BorderBrush="Transparent" Margin="5,0,10,0" VerticalAlignment="Center" Click="AccountButton_Click">
+            <Button x:Name="AccountButton" Background="Transparent" BorderBrush="Transparent" Margin="5,0,3,0" VerticalAlignment="Center" Click="AccountButton_Click">
                 <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\accounticon.png" Height="20" Width="20"/>
             </Button>
+            <TextBlock x:Name="UserNameText" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"></TextBlock>
 
         
             <Popup x:Name="AccountPopup" PlacementTarget="{Binding ElementName=AccountButton}" Placement="Bottom" StaysOpen="False">

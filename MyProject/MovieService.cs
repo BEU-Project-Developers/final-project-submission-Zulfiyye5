@@ -403,6 +403,48 @@ WHERE g.dbId = @movieId;";
         
 
     }
+
+
+        public void AddReview(int movieId,int userId,string reviewText)
+        {
+            string query = "INSERT INTO MovieReviews (user_id, movie_id,reviewText) VALUES (@UserId, @MovieId,@ReviewText)";
+
+
+            try
+            {
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+
+                        command.Parameters.AddWithValue("@UserId", userId);
+                        command.Parameters.AddWithValue("@MovieId", movieId);
+                        command.Parameters.AddWithValue("@ReviewText", reviewText);
+
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("Review successfully added.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to add the review.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+        }
+
         public void RemoveFromFavorite(int movieId, int userId)
         {
             string query = "DELETE FROM FavoriteMovies WHERE user_id = @UserId AND movie_id = @MovieId";
