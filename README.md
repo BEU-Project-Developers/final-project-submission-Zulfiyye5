@@ -11,7 +11,6 @@ User Features:
 - [x] ~~Allow users to create a "watchlist" of movies to watch later~~
 - [x] ~~Allow users to add movies to a "favorites" list.~~
 - [x] ~~Show a list of "watched", "watchlist", and "favorite" movies.~~
-- [ ] Allow users to remove movies from the watchlist, favorites, and watched lists
 
 
 
