@@ -25,6 +25,8 @@ namespace MyProject.ViewModels
         public List<Genre>Genres { get; set; }
         public List<MovieCast> TopBilledCast { get; set; }
 
+        public List<MovieReview> MovieReviews { get; set; }
+
         
         public MoviesDetailViewModel(Movie movie,MovieService movieService)
         {
@@ -42,8 +44,10 @@ namespace MyProject.ViewModels
             Origin_language = movie.Origin_language;
             Genres = movieService.FindGenreByMovieId(movie.dbId);
             TopBilledCast = movieService.FindCastByMovieId(movie.dbId);
+            MovieReviews = movieService.MovieReviewOfMovie(movie.dbId);
 
-         
+
+
 
         }
         public string Directed_by_string

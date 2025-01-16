@@ -445,6 +445,48 @@ WHERE g.dbId = @movieId;";
 
         }
 
+        public List<MovieReview> MovieReviewOfMovie(int movieId)
+        {
+            List<MovieReview> movieReviews = new List<MovieReview>();
+
+            string query = @"select user_id,reviewText,u.userName from MovieReviews mr
+join Users u on u.id = mr.user_id
+
+where movie_id = @movieId";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@movieId", movieId);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        MovieReview movieReview = new MovieReview { 
+                            user_name = reader.GetString(reader.GetOrdinal("userName")),
+                            user_id = reader.GetInt32(reader.GetOrdinal("user_id")),
+                            reviewText = reader.GetString(reader.GetOrdinal("reviewText")),
+
+                        };
+                 
+
+                        movieReviews.Add(movieReview);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+            }
+
+            return movieReviews;
+        }
+
+
         public void RemoveFromFavorite(int movieId, int userId)
         {
             string query = "DELETE FROM FavoriteMovies WHERE user_id = @UserId AND movie_id = @MovieId";

@@ -55,7 +55,7 @@ BorderBrush="Transparent" Click="GoToWatched">
                 <Border  BorderBrush="Gray" BorderThickness="1" Width="100" Background="#1D232A">
                     <StackPanel>
 
-                        <Button Content="Settings" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent"/>
+   
                         <Button Content="Sign out" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left" BorderBrush="Transparent" Click="SignOutClick"/>
                     </StackPanel>
                 </Border>

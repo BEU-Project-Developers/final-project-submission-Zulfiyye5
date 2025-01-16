@@ -41,7 +41,7 @@ namespace MyProject.Views
                 string title = "Error";
                 MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
+            else { 
           
             bool success = _movieService.AddUser(email,userName, password);
 
@@ -56,7 +56,7 @@ namespace MyProject.Views
                 string title = "Error";
                 MessageBox.Show(message, title, MessageBoxButton.OK, MessageBoxImage.Error);
         
-            }
+            } }
         }
 
         private bool IsValidEmail(string email)

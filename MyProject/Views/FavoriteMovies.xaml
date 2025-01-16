@@ -59,8 +59,8 @@
             </Border>
 
             <StackPanel Grid.Row="1">
-                <TextBlock Text="Favorite Movies" Foreground="White" Margin="30,0,0,0" FontSize="40"/>
-                <TextBlock Text="Use filter" Foreground="#DACDCD" Margin="30,10,0,0" FontSize="20"/>
+                <TextBlock Text="Favorite Movies" Foreground="White" HorizontalAlignment="Center" FontSize="40"/>
+               
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="7*"/>

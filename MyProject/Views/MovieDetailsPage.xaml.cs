@@ -31,7 +31,7 @@ namespace MyProject.Views
         {
             Movie = movie;
             _movieService = new MovieService();
-            _movieService.AddToFavorite(129,1);
+         
             InitializeComponent();
             if(_movieService.IsFavorite(Movie.dbId, UserSession.Instance.UserId))
             {
@@ -193,7 +193,12 @@ namespace MyProject.Views
       
             var addReviewWindow = new AddReviewWindow(Movie);
 
-            addReviewWindow.Closed += (s, args) => this.Effect = null; 
+            addReviewWindow.Closed += (s, args) =>
+            {
+                // Refresh the MovieReviews data after the review window is closed
+                DataContext = new MoviesDetailViewModel(Movie, _movieService);
+                this.Effect = null; // Reset blur effect
+            };
 
 
             addReviewWindow.Owner = Application.Current.MainWindow;

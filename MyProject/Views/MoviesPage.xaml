@@ -31,17 +31,18 @@
         </Border>
 
         <StackPanel Grid.Row="1">
-            <TextBlock Text="Welcome to MovieDb" Foreground="White" Margin="26,0,0,0" FontSize="40"/>
-                <TextBlock Text="Explore now" Foreground="White" Margin="30,10,0,0" FontSize="20"/>
-                <TextBlock Text="Use filter" Foreground="#DACDCD" Margin="30,10,0,0" FontSize="20"/>
-            <Grid Margin="10">
+            <TextBlock Text="Welcome to MovieDB" Foreground="White" HorizontalAlignment="Center"  FontSize="40"/>
+                <TextBlock Text="Explore now" Foreground="White" HorizontalAlignment="Center" Margin="20,10,0,0" FontSize="20"/>
+                
+            <Grid Margin="10,2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="7*"/>
                     <ColumnDefinition Width="11*"/>
                     <ColumnDefinition Width="297*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Height="1000" Grid.ColumnSpan="3">
-                    <ItemsControl Margin="10" ItemsSource="{Binding Movies}">
+                        <TextBlock Text="Use filter" Foreground="#DACDCD" Margin="20,15,0,0" FontSize="15"/>
+                        <ItemsControl Margin="10,0" ItemsSource="{Binding Movies}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel />
