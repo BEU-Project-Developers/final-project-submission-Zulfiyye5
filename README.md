@@ -21,7 +21,7 @@ Backend & Database:
 - [x]  ~~Implement User Data CRUD operations.~~
 
 Pages:
-- [ ] User Profile Page
+
 - [x] ~~Home Page~~
 - [x] ~~Display all movies in database~~
 - [x] ~~Display movie details of spesific movie~~
