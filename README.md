@@ -33,4 +33,3 @@ Pages:
 
 Movie Browsing
 - [x] ~~Allow user explore movies through searching~~
-- [ ]  Allow user explore movie by filtering
