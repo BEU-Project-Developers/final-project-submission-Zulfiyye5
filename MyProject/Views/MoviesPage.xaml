@@ -41,7 +41,7 @@
                     <ColumnDefinition Width="297*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel Height="1000" Grid.ColumnSpan="3">
-                        <TextBlock Text="Use filter" Foreground="#DACDCD" Margin="20,15,0,0" FontSize="15"/>
+                       
                         <ItemsControl Margin="10,0" ItemsSource="{Binding Movies}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyProject"
              mc:Ignorable="d" 
-                    d:DesignHeight="100" d:DesignWidth="800">
+                    d:DesignHeight="100" d:DesignWidth="760">
     <DockPanel Background="#14181C" Height="60">
         
         <Button FontSize="15" Margin="9,0,0,0"
@@ -48,7 +48,8 @@ BorderBrush="Transparent" Click="GoToWatched">
             <Button x:Name="AccountButton" Background="Transparent" BorderBrush="Transparent" Margin="5,0,3,0" VerticalAlignment="Center" Click="AccountButton_Click">
                 <Image Source="C:\Users\ADMIN\source\repos\MyProject\MyProject\Images\accounticon.png" Height="20" Width="20"/>
             </Button>
-            <TextBlock x:Name="UserNameText" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"></TextBlock>
+            
+            <TextBlock   x:Name="UserNameText" Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0"></TextBlock>
 
         
             <Popup x:Name="AccountPopup" PlacementTarget="{Binding ElementName=AccountButton}" Placement="Bottom" StaysOpen="False">

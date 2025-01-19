@@ -5,30 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyProject"
       mc:Ignorable="d" 
-     Background="White"
-   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-      Title="LoginPage">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+      Title="LoginPage" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#1B2027">
 
-   
-        <StackPanel Grid.Column="0" Margin="50,50,50,30" VerticalAlignment="Center" >
-            <TextBlock Text="Sign In" FontSize="28" FontWeight="Bold" Margin="0,0,0,20" />
-
-            <TextBlock Text="EMAIL" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" />
+    <Grid >
+        <StackPanel HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Center">
+            <TextBlock Text="MOVIEDB" FontSize="60" FontWeight="Bold" Foreground="White" Margin="0,0,0,5" />
+            <TextBlock Text="Sign in" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,5" TextAlignment="Center" />
+            <TextBlock Text="EMAIL" Margin="0,40,0,5" FontSize="12" FontWeight="Bold"  Foreground="White"  />
             <TextBox Height="35" Margin="0,0,0,15" Background="#EFEFEF" BorderThickness="0" Padding="10" x:Name="EmailTextbox" />
 
-            <TextBlock Text="PASSWORD" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" />
+            <TextBlock Text="PASSWORD"   Foreground="White"  Margin="0,0,0,5" FontSize="12" FontWeight="Bold" />
             <PasswordBox Height="35" Margin="0,0,0,15" Background="#EFEFEF" BorderThickness="0" Padding="10" x:Name="PasswordBox" />
             <Button Content="Sign in"
         
  Background="#5138EE"
         Foreground="White"
-Margin="0,0,0,15"
+Margin="0,10,0,15"
 Width="100"
  Height="34"
  FontSize="12"
@@ -41,33 +34,19 @@ Width="100"
                     </Style>
                 </Button.Resources>
             </Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Don't have an account?" Foreground="White"  Margin="0,20,0,0" />
+                <Button Content="Create account" Background="Transparent" Foreground="White"  Click="SignUpCLick" VerticalAlignment="Bottom" BorderBrush="Transparent" Margin="70,0,0,0"></Button>
+            </StackPanel>
+
+
 
         </StackPanel>
 
-       
-        <Grid Grid.Column="1" Background="#5138EE">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Welcome to MOVIEDB" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,5" />
-                <TextBlock Text="Sign in your account" Foreground="White"/>
-                <TextBlock Text="Don't have an account?" Foreground="White" />
-                <Button Content="Sign up"
-                 
-          Background="WHite"
-                 
-          Margin="10,55,10,5"
-         Width="100"
-          Height="34"
-          FontSize="12"
-          
-          HorizontalAlignment="Center" Click="SignUpCLick">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="6"/>
 
-                        </Style>
-                    </Button.Resources>
-                </Button>
-            </StackPanel>
-        </Grid>
+   
+        
+
+       
     </Grid>
 </Page>

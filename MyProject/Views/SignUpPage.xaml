@@ -5,53 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MyProject"
       mc:Ignorable="d" 
-      Background="White"
-      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+     VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#1B2027"
+    
       Title="SignUpPage">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
 
-        <!-- Left Panel -->
-        <Grid Grid.Column="0" Background="#5138EE">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Welcome to MOVIEDB" FontSize="40" FontWeight="Bold" Foreground="White" Margin="0,0,0,5" />
-                <TextBlock Text="Create a new account" Foreground="White" />
-                <TextBlock Text="Already have an account?" Foreground="White" />
-                <Button Content="Sign in"
-                        Background="White"
-                        Margin="10,55,10,5"
-                        Width="100"
-                        Height="34"
-                        FontSize="12"
-                        HorizontalAlignment="Center" 
-                        Click="SignInClick">
-                    <Button.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="6" />
-                        </Style>
-                    </Button.Resources>
-                </Button>
-            </StackPanel>
-        </Grid>
+    <Grid >
+        <StackPanel HorizontalAlignment="Center" Margin="0,80,0,0" VerticalAlignment="Center">
+            <TextBlock Text="MOVIEDB" FontSize="60" FontWeight="Bold" Foreground="White" Margin="0,0,0,5" />
 
-        
-        <StackPanel Grid.Column="1" Margin="50,50,50,30" VerticalAlignment="Center">
-            <TextBlock Text="Sign Up" FontSize="28" FontWeight="Bold" Margin="0,0,0,20" />
+            <TextBlock Text="Sign Up" HorizontalAlignment="Center" FontSize="28" FontWeight="Bold" Margin="0,0,0,20" Foreground="White"/>
 
-            <TextBlock Text="EMAIL" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" />
+            <TextBlock Text="EMAIL" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" Foreground="White"/>
             <TextBox Height="35" Margin="0,0,0,15" Background="#EFEFEF" BorderThickness="0" Padding="10" x:Name="EmailTextbox" />
 
-            <TextBlock Text="USERNAME" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" />
+            <TextBlock Text="USERNAME" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" Foreground="White" />
             <TextBox Height="35" Margin="0,0,0,15" Background="#EFEFEF" BorderThickness="0" Padding="10" x:Name="UserNameTextbox" />
 
-            <TextBlock Text="PASSWORD" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" />
+            <TextBlock Text="PASSWORD" Margin="0,0,0,5" FontSize="12" FontWeight="Bold" Foreground="White"  />
             <PasswordBox Height="35" Margin="0,0,0,15" Background="#EFEFEF" BorderThickness="0" Padding="10" x:Name="PasswordBox" />
 
-           
+
 
             <Button Content="Sign up"
                     Background="#5138EE"
@@ -68,6 +42,19 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Already have an account?" Foreground="White"  Margin="0,20,0,0" />
+                <Button Content="Sign in" Background="Transparent" Foreground="White"  Click="SignInClick" VerticalAlignment="Bottom" BorderBrush="Transparent" Margin="100,0,0,0"></Button>
+            </StackPanel>
+
+
+
         </StackPanel>
+
+
+
+
+
+
     </Grid>
 </Page>

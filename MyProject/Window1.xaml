@@ -5,17 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Movie Search" Height="800" Width="1280" Background="#1B2027">
-    <Grid>
-        <Border  BorderBrush="Gray" BorderThickness="1" Width="100" Background="#1D232A">
-            <StackPanel>
-              
-                <Button Content="Favorite Movies" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left"/>
-                <Button Content="Watched" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left"/>
-                <Button Content="Watchlist" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left"/>
+ 
+      
+        
 
-                <Button Content="Settings" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left"/>
-                <Button Content="Sign out" Margin="5" Background="Transparent" Foreground="White" HorizontalAlignment="Left"/>
-            </StackPanel>
-        </Border>
-    </Grid>
 </Window>
