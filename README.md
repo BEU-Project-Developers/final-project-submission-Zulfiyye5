@@ -4,7 +4,7 @@ User Authentication:
 
 - [x] ~~Implement Sign-Up functionality for creating a new user account.~~
 - [x] ~~Implement Login functionality to access user account.~~
-- [x] Sign out functionality
+- [x] ~~Sign out functionality~~
 
 User Features:
 - [x] ~~Allow users to mark movies as "watched".~~
