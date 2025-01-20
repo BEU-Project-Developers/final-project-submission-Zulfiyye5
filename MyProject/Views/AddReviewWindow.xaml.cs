@@ -24,13 +24,13 @@ namespace MyProject.Views
     {
         Movie Movie { get; set; }
    
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         public AddReviewWindow(Movie movie)
         {
             InitializeComponent();
             Movie = movie;
-            _movieService = new MovieService();
-            DataContext = new MoviesDetailViewModel(movie, _movieService);
+            _movieManager = new MovieManager();
+            DataContext = new MoviesDetailViewModel(movie, _movieManager);
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace MyProject.Views
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            _movieService.AddReview(Movie.dbId,UserSession.Instance.UserId,ReviewTextBox.Text);
+            _movieManager.AddReview(Movie.dbId,UserManager.Instance.UserId,ReviewTextBox.Text);
             this.Close();
         }
 

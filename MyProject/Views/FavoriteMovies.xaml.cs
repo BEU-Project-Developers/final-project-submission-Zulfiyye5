@@ -22,14 +22,14 @@ namespace MyProject.Views
     /// </summary>
     public partial class FavoriteMovies : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
 
         public FavoriteMovies()
         {
             InitializeComponent();
-            _movieService = new MovieService();
+            _movieManager = new MovieManager();
 
-            this.DataContext = new PagesViewModel(_movieService);
+            this.DataContext = new PagesViewModel(_movieManager);
             this.NavBarUserControl.FavoritesText.Foreground = new SolidColorBrush(Colors.Red);
             
             this.NavBarUserControl.FavoritesText.FontSize = 16;
@@ -43,7 +43,7 @@ namespace MyProject.Views
 
             if (movie != null)
             {
-                MainWindow.NavigationService.Navigate(new MovieDetailsPage(movie));
+                MainWindow.NavigationManager.Navigate(new MovieDetailsPage(movie));
             }
         }
 

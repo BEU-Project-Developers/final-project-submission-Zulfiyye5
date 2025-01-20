@@ -9,33 +9,33 @@ namespace MyProject.ViewModels
 {
     public class MovieViewModel
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
        
         public string PageTitle { get; set; }
         public ObservableCollection<Movie> Movies { get; set; }
     
-        public MovieViewModel(MovieService movieService,string pageName)
+        public MovieViewModel(MovieManager movieManager,string pageName)
         {
-          
-            _movieService = movieService;
+
+            _movieManager = movieManager;
             if (pageName == "HomePage") {
                 PageTitle="Movies";
-                Movies = new ObservableCollection<Movie>(_movieService.GetAllMovies());
+                Movies = new ObservableCollection<Movie>(_movieManager.GetAllMovies());
 
             }
             else if (pageName == "FavoriteMovies") {
                 PageTitle = "Favorite Movies";
-                Movies = new ObservableCollection<Movie>(_movieService.GetFavorities(UserSession.Instance.UserId));
+                Movies = new ObservableCollection<Movie>(_movieManager.GetFavorities(UserManager.Instance.UserId));
             }
             else if (pageName == "WatchedMovies")
             {
                 PageTitle = "Watched Movies";
-                Movies = new ObservableCollection<Movie>(_movieService.GetWatchedMovies(UserSession.Instance.UserId));
+                Movies = new ObservableCollection<Movie>(_movieManager.GetWatchedMovies(UserManager.Instance.UserId));
             }
             else if (pageName == "WatchList")
             {
                 PageTitle = "WatchList";
-                Movies = new ObservableCollection<Movie>(_movieService.GetWatchedMovies(UserSession.Instance.UserId));
+                Movies = new ObservableCollection<Movie>(_movieManager.GetWatchedMovies(UserManager.Instance.UserId));
             }
 
 

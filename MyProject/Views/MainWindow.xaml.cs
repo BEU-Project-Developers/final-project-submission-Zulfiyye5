@@ -4,11 +4,11 @@ namespace MyProject.Views
 {
     public partial class MainWindow : Window
     {
-        public static NavigationService NavigationService { get; private set; }
+        public static NavigationManager NavigationManager { get; private set; }
         public MainWindow()
         {
             InitializeComponent();
-            NavigationService = new NavigationService(MainFrame);
+            NavigationManager = new NavigationManager(MainFrame);
         }
 
     }

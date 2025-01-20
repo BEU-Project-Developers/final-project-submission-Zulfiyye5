@@ -57,7 +57,6 @@ C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtime
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\MyProject.csproj.Up2Date
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Window1.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\MvvmHelpers.dll
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\System.Data.SqlClient.dll
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\de\Microsoft.Data.SqlClient.resources.dll
@@ -85,11 +84,9 @@ C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtime
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
 C:\Users\ADMIN\source\repos\MyProject\MyProject\bin\Debug\net8.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\LoginPage.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MainWindow.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MovieDetailsPage.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\PersonInfoPage.g.cs
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\LoginPage.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MainWindow.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MovieDetailsPage.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\PersonInfoPage.baml
@@ -105,9 +102,11 @@ C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\N
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SignUpPage.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SignUpPage.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\MyProject.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MoviesPage.g.cs
-C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\MoviesPage.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SearchResults.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SearchResults.baml
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\AddReviewWindow.g.cs
 C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\AddReviewWindow.baml
+C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SignInPage.g.cs
+C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\SignInPage.baml
+C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\HomePage.g.cs
+C:\Users\ADMIN\source\repos\MyProject\MyProject\obj\Debug\net8.0-windows\Views\HomePage.baml

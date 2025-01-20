@@ -7,11 +7,11 @@ using System.Windows.Controls;
 
 namespace MyProject
 {
-    public class NavigationService
+    public class NavigationManager
     {
         private readonly Frame _mainFrame;
 
-        public NavigationService(Frame mainFrame)
+        public NavigationManager(Frame mainFrame)
         {
             _mainFrame = mainFrame ?? throw new ArgumentNullException(nameof(mainFrame));
         }

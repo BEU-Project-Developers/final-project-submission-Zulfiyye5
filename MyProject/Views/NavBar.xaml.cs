@@ -29,33 +29,34 @@ namespace MyProject
         {
             InitializeComponent();
             
-            UserNameText.Text = UserSession.Instance.UserName;
+            UserNameText.Text = UserManager.Instance.UserName;
            
 
         }
         private void GoToMovies(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new MoviesPage());
+            MainWindow.NavigationManager.Navigate(new HomePage());
         }
 
         private void GoToWatched(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new WatchedMovies());
+            MainWindow.NavigationManager.Navigate(new WatchedMovies());
         }
 
         private void GoToWatchList(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new WatchList());
+            MainWindow.NavigationManager.Navigate(new WatchList());
         }
 
         private void GoToFavorities(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new FavoriteMovies());
+            MainWindow.NavigationManager.Navigate(new FavoriteMovies());
         }
 
         private void SignOutClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new LoginPage());
+            MainWindow.NavigationManager.Navigate(new SignInPage
+                ());
         }
 
         private void SearchBoxFocus(object sender, RoutedEventArgs e)
@@ -65,7 +66,7 @@ namespace MyProject
 
         private void SearchMoviesClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new SearchResults(SearchBoxTextBox.Text));
+            MainWindow.NavigationManager.Navigate(new SearchResults(SearchBoxTextBox.Text));
         }
 
         private void SearchBoxTextBox_KeyDown(object sender, KeyEventArgs e)

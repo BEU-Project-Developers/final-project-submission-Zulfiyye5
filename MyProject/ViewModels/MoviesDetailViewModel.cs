@@ -28,7 +28,7 @@ namespace MyProject.ViewModels
         public List<MovieReview> MovieReviews { get; set; }
 
         
-        public MoviesDetailViewModel(Movie movie,MovieService movieService)
+        public MoviesDetailViewModel(Movie movie,MovieManager movieManager)
         {
             dbId = movie.dbId;
            
@@ -42,9 +42,9 @@ namespace MyProject.ViewModels
             Director_name = movie.Director_name;
             Runtime = movie.Runtime;
             Origin_language = movie.Origin_language;
-            Genres = movieService.FindGenreByMovieId(movie.dbId);
-            TopBilledCast = movieService.FindCastByMovieId(movie.dbId);
-            MovieReviews = movieService.MovieReviewOfMovie(movie.dbId);
+            Genres = movieManager.FindGenreByMovieId(movie.dbId);
+            TopBilledCast = movieManager.FindCastByMovieId(movie.dbId);
+            MovieReviews = movieManager.MovieReviewOfMovie(movie.dbId);
 
 
 

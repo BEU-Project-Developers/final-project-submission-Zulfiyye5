@@ -22,11 +22,11 @@ namespace MyProject.Views
     /// </summary>
     public partial class WatchList : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         public WatchList()
         {
-            _movieService = new MovieService();
-            this.DataContext = new PagesViewModel(_movieService);
+            _movieManager = new MovieManager();
+            this.DataContext = new PagesViewModel(_movieManager);
             InitializeComponent();
             this.NavBarUserControl.WatchListText.Foreground = new SolidColorBrush(Colors.Red);
 

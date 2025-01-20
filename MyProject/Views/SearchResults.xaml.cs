@@ -22,12 +22,12 @@ namespace MyProject.Views
     /// </summary>
     public partial class SearchResults : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         public SearchResults(string movieString)
         {
-            _movieService = new MovieService();
+            _movieManager = new MovieManager();
             InitializeComponent();
-           DataContext = new PagesViewModel(_movieService,movieString);
+           DataContext = new PagesViewModel(_movieManager, movieString);
         }
 
         private void MovieItem_Click(object sender, MouseButtonEventArgs e)
@@ -38,7 +38,8 @@ namespace MyProject.Views
 
             if (movie != null)
             {
-                MainWindow.NavigationService.Navigate(new MovieDetailsPage(movie));
+                MainWindow.NavigationManager
+                    .Navigate(new MovieDetailsPage(movie));
             }
         }
     }

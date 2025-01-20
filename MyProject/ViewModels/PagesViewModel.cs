@@ -11,7 +11,7 @@ namespace MyProject.ViewModels
 {
     public class PagesViewModel
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
        
         public string PageTitle { get; set; }
         public ObservableCollection<Movie> Movies { get; set; }
@@ -26,16 +26,16 @@ namespace MyProject.ViewModels
 
 
       
-        public PagesViewModel(MovieService movieService)
+        public PagesViewModel(MovieManager movieManager)
         {
           
-            _movieService = movieService;
-            Movies = new ObservableCollection<Movie>(_movieService.GetAllMovies());
-            FavoriteMovies = new ObservableCollection<Movie>(_movieService.GetFavorities(UserSession.Instance.UserId));
-            WatchList = new ObservableCollection<Movie>(_movieService.GetWatchList(UserSession.Instance.UserId));
-            WatchedMoviesList = new ObservableCollection<Movie>(_movieService.GetWatchedMovies(UserSession.Instance.UserId));
-            PopularMovies= new ObservableCollection<Movie>(_movieService.PopularMovies());
-            HighestImdbMovies= new ObservableCollection<Movie>(_movieService.HighestImdbMovies());
+            _movieManager= movieManager;
+            Movies = new ObservableCollection<Movie>(_movieManager.GetAllMovies());
+            FavoriteMovies = new ObservableCollection<Movie>(_movieManager.GetFavorities(UserManager.Instance.UserId));
+            WatchList = new ObservableCollection<Movie>(_movieManager.GetWatchList(UserManager.Instance.UserId));
+            WatchedMoviesList = new ObservableCollection<Movie>(_movieManager.GetWatchedMovies(UserManager.Instance.UserId));
+            PopularMovies= new ObservableCollection<Movie>(_movieManager.PopularMovies());
+            HighestImdbMovies= new ObservableCollection<Movie>(_movieManager.HighestImdbMovies());
 
         }
         private bool _isSearchResultsEmpty;
@@ -56,10 +56,10 @@ namespace MyProject.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public PagesViewModel(MovieService movieService, string movieString)
+        public PagesViewModel(MovieManager movieManager, string movieString)
         {
-            _movieService = movieService;
-            SearchResults = new ObservableCollection<Movie>(_movieService.SearchMovies(movieString));
+            _movieManager = movieManager;
+            SearchResults = new ObservableCollection<Movie>(_movieManager.SearchMovies(movieString));
             IsSearchResultsEmpty = SearchResults == null || !SearchResults.Any();
         }
 

@@ -6,6 +6,6 @@
      >
 
     <Grid>
-        <Frame Source="LoginPage.xaml" NavigationUIVisibility="Hidden" Name="MainFrame"/>
+        <Frame Source="SignInPage.xaml" NavigationUIVisibility="Hidden" Name="MainFrame"/>
     </Grid>
 </Window>

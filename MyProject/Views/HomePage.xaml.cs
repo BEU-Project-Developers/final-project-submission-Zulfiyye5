@@ -8,16 +8,16 @@ using System.Windows.Media;
 
 namespace MyProject.Views
 {
-    public partial class MoviesPage : Page
+    public partial class HomePage : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
 
 
-        public MoviesPage()
+        public HomePage()
         {
             InitializeComponent();
-            _movieService = new MovieService();
-         this.DataContext = new PagesViewModel(_movieService);
+            _movieManager = new MovieManager();
+         this.DataContext = new PagesViewModel(_movieManager);
             this.NavBarUserControl.HomeText.Foreground = new SolidColorBrush(Colors.Red);
 
             this.NavBarUserControl.HomeText.FontSize = 16;
@@ -33,7 +33,8 @@ namespace MyProject.Views
             if (movie != null)
             {
 
-                MainWindow.NavigationService.Navigate(new MovieDetailsPage(movie));
+                MainWindow.NavigationManager
+                    .Navigate(new MovieDetailsPage(movie));
              
             }
         }

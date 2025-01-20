@@ -26,39 +26,39 @@ namespace MyProject.Views
         private bool isWatched = false;
         private bool isLiked = false;
         private bool isWatchList = false;
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         public MovieDetailsPage(Movie movie)
         {
             Movie = movie;
-            _movieService = new MovieService();
+            _movieManager = new MovieManager();
          
             InitializeComponent();
-            if(_movieService.IsFavorite(Movie.dbId, UserSession.Instance.UserId))
+            if(_movieManager.IsFavorite(Movie.dbId, UserManager.Instance.UserId))
             {
                 isLiked= true;
                 HeartImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\orangeheart.png"));
                 LikeText.Text = "Liked";
                 HeartImage.ToolTip = "Add to Favorites";
             }
-            if(_movieService.IsWatched(Movie.dbId,UserSession.Instance.UserId)) { 
+            if(_movieManager.IsWatched(Movie.dbId,UserManager.Instance.UserId)) { 
                 isWatched= true;
                 EyeImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\greeneye.png"));
                 WatchText.Text="Watched";
                 EyeImage.ToolTip="Add to Watched List";
             }
-            if (_movieService.IsWatchList(Movie.dbId, UserSession.Instance.UserId))
+            if (_movieManager.IsWatchList(Movie.dbId, UserManager.Instance.UserId))
             {
                 isWatchList = true;
                 SaveImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\savered.png"));
                 SaveImage.ToolTip="Add to  WatchList" ;
             }
-            DataContext = new MoviesDetailViewModel(movie,_movieService);  
+            DataContext = new MoviesDetailViewModel(movie, _movieManager);  
 
         }
 
         private void GoToMovies(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new MoviesPage());
+            MainWindow.NavigationManager.Navigate(new HomePage());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -73,7 +73,7 @@ namespace MyProject.Views
                 EyeImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\greeneye.png"));
                 isWatched = false;
                 WatchText.Text = "Watched";
-                _movieService.AddToWatched(Movie.dbId, UserSession.Instance.UserId);
+                _movieManager.AddToWatched(Movie.dbId, UserManager.Instance.UserId);
                 EyeImage.ToolTip = "Remove from Watched List";
             }
             else
@@ -81,7 +81,7 @@ namespace MyProject.Views
                 EyeImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\whiteeye.png"));
                 isWatched = true;
                 WatchText.Text = "Watch";
-                _movieService.RemoveFromWatched(Movie.dbId, UserSession.Instance.UserId);
+                _movieManager.RemoveFromWatched(Movie.dbId, UserManager.Instance.UserId);
                 EyeImage.ToolTip = "Add to Watched List";
             }
         }
@@ -91,7 +91,7 @@ namespace MyProject.Views
             var person =border?.DataContext as MovieCast;
             if(person!=null) {
 
-                MainWindow.NavigationService.Navigate(new PersonInfoPage(person, Movie, _movieService));
+                MainWindow.NavigationManager.Navigate(new PersonInfoPage(person, Movie, _movieManager));
                
             }
           
@@ -108,7 +108,7 @@ namespace MyProject.Views
                 HeartImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\orangeheart.png"));
                 isLiked = false;
                 LikeText.Text = "Liked";
-                _movieService.AddToFavorite(Movie.dbId, UserSession.Instance.UserId);
+                _movieManager.AddToFavorite(Movie.dbId, UserManager.Instance.UserId);
 
                 HeartImage.ToolTip = "Remove from Favorites";
 
@@ -118,7 +118,7 @@ namespace MyProject.Views
                 HeartImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\whiteheart.png"));
                 isLiked = true;
                 LikeText.Text = "Like";
-                _movieService.RemoveFromFavorite(Movie.dbId, UserSession.Instance.UserId);
+                _movieManager.RemoveFromFavorite(Movie.dbId, UserManager.Instance.UserId);
                 HeartImage.ToolTip = "Add to Favorites";
             }
         }
@@ -130,8 +130,8 @@ namespace MyProject.Views
             {
                 SaveImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\savered.png"));
                 isWatchList = false;
-          
-                _movieService.AddToWatchList(Movie.dbId, UserSession.Instance.UserId);
+
+                _movieManager.AddToWatchList(Movie.dbId, UserManager.Instance.UserId);
                 SaveImage.ToolTip = "Remove from  WatchList";
 
             }
@@ -139,14 +139,14 @@ namespace MyProject.Views
             {
                 SaveImage.Source = new BitmapImage(new Uri("C:\\Users\\ADMIN\\source\\repos\\MyProject\\MyProject\\Images\\savewhite.png"));
                 isWatchList = true;
-                _movieService.RemoveFromWatchList(Movie.dbId, UserSession.Instance.UserId);
+                _movieManager.RemoveFromWatchList(Movie.dbId, UserManager.Instance.UserId);
                 SaveImage.ToolTip = "Add to  WatchList";
             }
         }
 
         private void GoToFavorites(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new FavoriteMovies());
+            MainWindow.NavigationManager.Navigate(new FavoriteMovies());
 
           
         }
@@ -154,27 +154,27 @@ namespace MyProject.Views
         private void GoToWatchList(object sender, RoutedEventArgs e)
         {
            
-            MainWindow.NavigationService.Navigate(new WatchList());
+            MainWindow.NavigationManager.Navigate(new WatchList());
            
         }
 
         private void GoToWatched(object sender, RoutedEventArgs e)
         {
             
-            MainWindow.NavigationService.Navigate(new WatchedMovies());
+            MainWindow.NavigationManager.Navigate(new WatchedMovies());
          
         }
 
         private void SignOutClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new LoginPage());
+            MainWindow.NavigationManager.Navigate(new SignInPage());
         }
 
   
 
         private void GoToFavorities(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new FavoriteMovies());
+            MainWindow.NavigationManager.Navigate(new FavoriteMovies());
         }
 
         private void AddReviewClick(object sender, RoutedEventArgs e)
@@ -196,7 +196,7 @@ namespace MyProject.Views
             addReviewWindow.Closed += (s, args) =>
             {
                 // Refresh the MovieReviews data after the review window is closed
-                DataContext = new MoviesDetailViewModel(Movie, _movieService);
+                DataContext = new MoviesDetailViewModel(Movie, _movieManager);
                 this.Effect = null; // Reset blur effect
             };
 

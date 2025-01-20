@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace MyProject
 {
-       public class UserSession
+       public class UserManager
     {
-        private static UserSession _instance;
-        public static UserSession Instance => _instance ??= new UserSession();
+        private static UserManager _instance;
+        public static UserManager Instance => _instance ??= new UserManager();
 
         public int UserId { get; set; }
 
        public string UserName { get; set; }=string.Empty;
         public string Email { get; set; } = string.Empty;
-        private UserSession() { }
+        private UserManager() { }
     }
 }

@@ -17,17 +17,17 @@ using System.Windows.Shapes;
 namespace MyProject.Views
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for SignInPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class SignInPage : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
 
-        public LoginPage()
+        public SignInPage()
         {
            
             InitializeComponent();
-            _movieService = new MovieService();
+            _movieManager = new MovieManager();
 
         }
 
@@ -55,7 +55,7 @@ namespace MyProject.Views
         private void SignUpCLick(object sender, RoutedEventArgs e)
         {
 
-            MainWindow.NavigationService.Navigate(new SignUpPage());
+            MainWindow.NavigationManager.Navigate(new SignUpPage());
         }
 
         private void SignInClick(object sender, RoutedEventArgs e)
@@ -65,15 +65,17 @@ namespace MyProject.Views
 
             if (IsValidEmail(EmailTextbox.Text))
             {
-                if (_movieService.UserExists(EmailTextbox.Text))
+                if (_movieManager.UserExists(EmailTextbox.Text))
                 {
-                    if (_movieService.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password) != null)
+                    if (_movieManager.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password) != null)
                     {
-                        UserSession.Instance.UserId = (int)(_movieService.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password));
-                       UserSession.Instance.UserName=(string)(_movieService.GetUserById(UserSession.Instance.UserId).name);
-                        UserSession.Instance.Email = (string)(_movieService.GetUserById(UserSession.Instance.UserId).email);
+                        
+                        
+                        UserManager.Instance.UserId = (int)(_movieManager.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password));
+                       UserManager.Instance.UserName=(string)(_movieManager.GetUserById(UserManager.Instance.UserId).name);
+                        UserManager.Instance.Email = (string)(_movieManager.GetUserById(UserManager.Instance.UserId).email);
 
-                        mainFrame?.Navigate(new MoviesPage());
+                        mainFrame?.Navigate(new HomePage());
                     }
                     else
                     {

@@ -16,10 +16,10 @@
     <Compile Update="Views\FavoriteMovies.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\MoviesPage.xaml.cs">
+    <Compile Update="Views\HomePage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\LoginPage.xaml.cs">
+    <Compile Update="Views\SignInPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\MovieDetailsPage.xaml.cs">
@@ -51,10 +51,10 @@
     <Page Update="Views\FavoriteMovies.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\MoviesPage.xaml">
+    <Page Update="Views\HomePage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\LoginPage.xaml">
+    <Page Update="Views\SignInPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindow.xaml">
@@ -76,9 +76,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\WatchList.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Window1.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

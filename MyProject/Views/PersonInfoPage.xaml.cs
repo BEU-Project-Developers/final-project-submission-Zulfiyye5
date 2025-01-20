@@ -22,22 +22,22 @@ namespace MyProject.Views
     /// </summary>
     public partial class PersonInfoPage : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         MovieCast movieCast;
         Movie Movie;
-        public PersonInfoPage(MovieCast moviecast,Movie movie,MovieService movieService)
+        public PersonInfoPage(MovieCast moviecast,Movie movie,MovieManager movieManager)
         {
             movieCast = moviecast;
             Movie = movie;
-            _movieService = movieService;
+            _movieManager = movieManager;
             InitializeComponent();
-            DataContext =new PersonInfoViewModel(moviecast,movie,movieService);
+            DataContext =new PersonInfoViewModel(moviecast,movie,movieManager);
           
         }
 
         private void GoBack(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new MovieDetailsPage(Movie));
+            MainWindow.NavigationManager.Navigate(new MovieDetailsPage(Movie));
         }
 
         private void MovieItem_Click(object sender, MouseButtonEventArgs e)
@@ -47,7 +47,7 @@ namespace MyProject.Views
 
             if (movie != null)
             {
-                MainWindow.NavigationService.Navigate(new MovieDetailsPage(movie));
+                MainWindow.NavigationManager.Navigate(new MovieDetailsPage(movie));
             }
         }
     }

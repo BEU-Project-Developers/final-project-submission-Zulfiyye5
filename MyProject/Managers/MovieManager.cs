@@ -4,7 +4,7 @@ using Microsoft.Data.SqlClient;
 using MyProject.Models;
 namespace MyProject
 {
-    public class MovieService
+    public class MovieManager
     {
         private readonly string connectionString = "Data Source=DESKTOP-U5F3V0U\\SQLEXPRESS;Initial Catalog=moviesDatabase;Integrated Security=True;Encrypt=False;Trust Server Certificate=True";
 

@@ -21,11 +21,11 @@ namespace MyProject.Views
     /// </summary>
     public partial class SignUpPage : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         public SignUpPage()
         {
             InitializeComponent();
-            _movieService = new MovieService();
+            _movieManager = new MovieManager();
         }
 
         private void SignUpClick(object sender, RoutedEventArgs e)
@@ -43,12 +43,12 @@ namespace MyProject.Views
             }
             else { 
           
-            bool success = _movieService.AddUser(email,userName, password);
+            bool success = _movieManager.AddUser(email,userName, password);
 
             if (success)
             {
-                UserSession.Instance.UserId = (int)(_movieService.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password));
-                MainWindow.NavigationService.Navigate(new MoviesPage());
+                UserManager.Instance.UserId = (int)(_movieManager.CheckUserFromTable(EmailTextbox.Text, PasswordBox.Password));
+                MainWindow.NavigationManager.Navigate(new HomePage());
             }
             else
             {
@@ -75,7 +75,8 @@ namespace MyProject.Views
 
         private void SignInClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.NavigationService.Navigate(new LoginPage());
+            MainWindow.NavigationManager.Navigate(new 
+                SignInPage());
         }
 
     }

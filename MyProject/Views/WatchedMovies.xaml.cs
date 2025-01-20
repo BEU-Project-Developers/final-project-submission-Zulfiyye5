@@ -22,11 +22,11 @@ namespace MyProject.Views
     /// </summary>
     public partial class WatchedMovies : Page
     {
-        private readonly MovieService _movieService;
+        private readonly MovieManager _movieManager;
         public WatchedMovies()
         {
-            _movieService = new MovieService();
-            this.DataContext = new PagesViewModel(_movieService);
+            _movieManager = new MovieManager();
+            this.DataContext = new PagesViewModel(_movieManager);
             InitializeComponent();
             this.NavBarUserControl.WatchedText.Foreground = new SolidColorBrush(Colors.Red);
 
@@ -42,7 +42,8 @@ namespace MyProject.Views
 
             if (movie != null)
             {
-                MainWindow.NavigationService.Navigate(new MovieDetailsPage(movie));
+                MainWindow.NavigationManager
+                    .Navigate(new MovieDetailsPage(movie));
             }
         }
 
